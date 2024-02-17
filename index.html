@@ -80,7 +80,7 @@
             const Safe = document.querySelector(".safe");
             const Lang = document.querySelector(".lang");
             function getJoke() {
-                fetch("https://v2.jokeapi.dev/joke/Pun?type=twopart")
+                fetch("https://v2.jokeapi.dev/joke/Any?type=twopart")
                     .then((response) => {
                         if (response.ok) {
                             return response.json();
