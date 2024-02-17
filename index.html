@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dx Jokes</title>
+        <style>
+            .d {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <button onclick="getJoke()">Get Joke</button>
+        <hr />
+        <table>
+            <thead>
+                Jokes
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Error:</p>
+                    </td>
+                    <td><span class="error d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Category:</p>
+                    </td>
+                    <td><span class="category d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Type:</p>
+                    </td>
+                    <td><span class="type d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Setup:</p>
+                    </td>
+                    <td><span class="setup d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Delivery:</p>
+                    </td>
+                    <td><span class="delivery d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Id:</p>
+                    </td>
+                    <td><span class="id d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Safe:</p>
+                    </td>
+                    <td><span class="safe d"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Lang:</p>
+                    </td>
+                    <td><span class="lang d"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            const Errore = document.querySelector(".error");
+            const Category = document.querySelector(".category");
+            const Type = document.querySelector(".type");
+            const Steup = document.querySelector(".setup");
+            const Delivery = document.querySelector(".delivery");
+            const Id = document.querySelector(".id");
+            const Safe = document.querySelector(".safe");
+            const Lang = document.querySelector(".lang");
+            function getJoke() {
+                fetch("https://v2.jokeapi.dev/joke/Pun?type=twopart")
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error("Network Response Error.");
+                        }
+                    })
+                    .then((data) => {
+                        Errore.textContent = data.error;
+                        Category.textContent = data.category;
+                        Type.textContent = data.type;
+                        Steup.textContent = data.setup;
+                        Delivery.textContent = data.delivery;
+                        Id.textContent = data.id;
+                        Safe.textContent = data.safe;
+                        Lang.textContent = data.lang;
+                    });
+            }
+        </script>
+    </body>
+</html>
