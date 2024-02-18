@@ -14,76 +14,43 @@
             href=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         />
         <script src=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
-        <h1>Joke Api</h1>
+        <h1
+            class="d-flex justify-content-center bg-warning w-50 mx-auto rounded my-3"
+            style="font-family: 'Fredoka', sans-serif"
+        >
+            Joke Api
+        </h1>
         <hr />
-        <table>
-            <thead>
-                Jokes
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <p>Error:</p>
-                    </td>
-                    <td><span class="error d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Category:</p>
-                    </td>
-                    <td><span class="category d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Type:</p>
-                    </td>
-                    <td><span class="type d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Setup:</p>
-                    </td>
-                    <td><span class="setup d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Delivery:</p>
-                    </td>
-                    <td><span class="delivery d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Id:</p>
-                    </td>
-                    <td><span class="id d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Safe:</p>
-                    </td>
-                    <td><span class="safe d"></span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <p>Lang:</p>
-                    </td>
-                    <td><span class="lang d"></span></td>
-                </tr>
-            </tbody>
-        </table>
-        <button onclick="getJoke()">Get Joke</button>
+        <div class="card text-center mx-5">
+            <div class="card-header">
+                <span class="category"></span> | <span class="type"></span> |
+                Joke
+            </div>
+            <div class="card-body">
+                <h5 class="card-title setup"></h5>
+                <p class="card-text delivery"></p>
+            </div>
+            <div class="card-footer text-body-secondary">
+                <button onclick="getJoke()" class="btn btn-outline-warning">
+                    Get Joke
+                </button>
+            </div>
+        </div>
 
         <script>
-            const Errore = document.querySelector(".error");
             const Category = document.querySelector(".category");
             const Type = document.querySelector(".type");
             const Steup = document.querySelector(".setup");
             const Delivery = document.querySelector(".delivery");
-            const Id = document.querySelector(".id");
-            const Safe = document.querySelector(".safe");
-            const Lang = document.querySelector(".lang");
+
             function getJoke() {
                 fetch("https://v2.jokeapi.dev/joke/Any?type=twopart")
                     .then((response) => {
@@ -94,14 +61,10 @@
                         }
                     })
                     .then((data) => {
-                        Errore.textContent = data.error;
                         Category.textContent = data.category;
                         Type.textContent = data.type;
                         Steup.textContent = data.setup;
                         Delivery.textContent = data.delivery;
-                        Id.textContent = data.id;
-                        Safe.textContent = data.safe;
-                        Lang.textContent = data.lang;
                     });
             }
         </script>
