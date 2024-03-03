@@ -5,7 +5,7 @@ const Delivery = document.querySelector(".delivery");
 const Card = document.querySelector(".card");
 
 function getJoke() {
-    fetch("https://v2.jokeapi.dev/joke/Any?type=twopart")
+    fetch("https://v2.jokeapi.dev/joke/Any")
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -15,11 +15,17 @@ function getJoke() {
         })
         .then((data) => {
             startCounting();
+            
             Category.textContent = data.category;
             
-            Type.textContent = data.type;
+            if (data.type === "twopart"){
+                Type.textContent = data.type;
+                Delivery.textContent = data.delivery;
+            }else{
+                Type.textContent = "One Part"
+                Delivery.textContent = data.joke
+            }
             Setup.textContent = data.setup;
-            Delivery.textContent = data.delivery;
         });
 }
 
