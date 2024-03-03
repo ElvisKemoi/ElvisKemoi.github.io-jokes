@@ -1,7 +1,8 @@
 const Category = document.querySelector(".category");
 const Type = document.querySelector(".type");
-const Steup = document.querySelector(".setup");
+const Setup = document.querySelector(".setup");
 const Delivery = document.querySelector(".delivery");
+const Card = document.querySelector(".card");
 
 function getJoke() {
     fetch("https://v2.jokeapi.dev/joke/Any?type=twopart")
@@ -15,8 +16,9 @@ function getJoke() {
         .then((data) => {
             startCounting();
             Category.textContent = data.category;
+            
             Type.textContent = data.type;
-            Steup.textContent = data.setup;
+            Setup.textContent = data.setup;
             Delivery.textContent = data.delivery;
         });
 }
@@ -49,3 +51,10 @@ document
     .addEventListener("click", startCounting);
 document.getElementById("startButton").addEventListener("click", startCounting);
 document.getElementById("stopButton").addEventListener("click", stopCounting);
+
+
+//Scroll Reveal
+ScrollReveal({ duration: 4000,direction: "top", distance: "300px"}).reveal(document.body)
+
+
+
