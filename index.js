@@ -54,7 +54,7 @@ document.getElementById("stopButton").addEventListener("click", stopCounting);
 
 
 //Scroll Reveal
-ScrollReveal({ duration: 4000,direction: "top", distance: "300px"}).reveal(document.body)
+ScrollReveal({ duration: 2500,direction: "top", distance: "300px"}).reveal(document.body)
 
 
 
