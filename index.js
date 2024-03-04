@@ -4,7 +4,7 @@ const Setup = document.querySelector(".setup");
 const Delivery = document.querySelector(".delivery");
 const Card = document.querySelector(".card");
 
-function getJoke() {
+function getQuote() {
     fetch("https://v2.jokeapi.dev/joke/Any")
         .then((response) => {
             if (response.ok) {
@@ -15,7 +15,6 @@ function getJoke() {
         })
         .then((data) => {
             startCounting();
-            
             Category.textContent = data.category;
             
             if (data.type === "twopart"){
@@ -43,7 +42,7 @@ function startCounting() {
         num++;
         if (num > 100) {
             num = 1;
-            getJoke();
+            getQuote();
         }
     }, 100);
 }
