@@ -1,0 +1,13 @@
+.navbar-brand,#startButton,.nav-item{
+    font-family: "Fredoka", sans-serif;
+}
+
+.nav-item{
+    font-size: larger;
+}
+.navbar-nav{
+    transition: 2s ease-in-out;
+}
+#navbarSupportedContent{
+    transition: .2s ease;
+}
