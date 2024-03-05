@@ -14,9 +14,7 @@ function getQuote() {
             }
         })
         .then((data) => {
-            startCounting();
             Category.textContent = data.category;
-            
             if (data.type === "twopart"){
                 Type.textContent = data.type;
                 Delivery.textContent = data.delivery;
@@ -25,6 +23,7 @@ function getQuote() {
                 Delivery.textContent = data.joke
             }
             Setup.textContent = data.setup;
+            startCounting();
         });
 }
 
@@ -53,7 +52,7 @@ function stopCounting() {
 
 document
     .getElementById("continueButton")
-    .addEventListener("click", startCounting);
+    .addEventListener("click",startCounting);
 document.getElementById("startButton").addEventListener("click", startCounting);
 document.getElementById("stopButton").addEventListener("click", stopCounting);
 
