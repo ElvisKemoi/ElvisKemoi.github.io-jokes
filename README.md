@@ -9,7 +9,7 @@
     <hr>
     <h2>Click click to get jokes</h2>
     <div style="display: flex; justify-content: center;">
-        <a href="https://elviskemoi.github.io/Jokes/" >
+        <a href="https://elviskemoi.github.io/Jokes/" target="_blank"  >
         <img src="home.png" alt="Home page image" style="width: 70%;"></a>
     </div>
 </body>
