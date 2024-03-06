@@ -7,8 +7,10 @@
 <body>
     <h1>Jokes App</h1>
     <hr>
+    <h2>Click click to get jokes</h2>
     <div style="display: flex; justify-content: center;">
-        <img src="home.png" alt="Home page image" style="width: 70%;">
+        <a href="https://elviskemoi.github.io/Jokes/" >
+        <img src="home.png" alt="Home page image" style="width: 70%;"></a>
     </div>
 </body>
 </html>
