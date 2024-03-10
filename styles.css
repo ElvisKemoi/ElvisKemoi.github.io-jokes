@@ -1,13 +1,33 @@
-.navbar-brand,#startButton,.nav-item,.card-header{
-    font-family: "Fredoka", sans-serif;
+.navbar-brand,
+#startButton,
+.nav-item,
+.card-header {
+	font-family: "Fredoka", sans-serif;
 }
 
-.nav-item{
-    font-size: larger;
+.nav-item {
+	font-size: larger;
 }
-.navbar-nav{
-    transition: 2s ease-in-out;
+.navbar-nav {
+	transition: 2s ease-in-out;
 }
-#navbarSupportedContent{
-    transition: .2s ease;
+#navbarSupportedContent {
+	transition: 0.2s ease;
+}
+
+#startButton {
+	animation: pulse infinite 1s;
+	transition: ease-in-out;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 10px yellow;
+	}
+	50% {
+		box-shadow: 0 0 30px yellow;
+	}
+	100% {
+		box-shadow: 0 0 50px transparent;
+	}
 }
