@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dx Jokes</title>
+        <title>Dx Jokes || Chucknorris</title>
 
 
         <link
@@ -31,7 +31,7 @@
         <header>
             <nav class="navbar bg-warning navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/"><h2>Dx. F Quotes</h2></a>
+                    <a class="navbar-brand" href="/"><h2>Dx. ChuckNorris</h2></a>
                     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon d-flex justify-content-center align-items-center  ">
                             <i class='bx bx-list-ul display-4'></i>
@@ -43,13 +43,13 @@
                             <a class="nav-link  fs-3 mx-2" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item mx-auto">
-                            <a class="nav-link fs-3 mx-2 active" href="quotes.html">Famous Quotes</a>
+                            <a class="nav-link fs-3 mx-2" href="quotes.html">Famous Quotes</a>
                         </li>
                         <li class="nav-item mx-auto">
                             <a class="nav-link fs-3 mx-2" href="kanye.html">Kanye Quotes</a>
                         </li>
                         <li class="nav-item mx-auto">
-                            <a class="nav-link fs-3 mx-2" href="chucknorris.html">Chuck Jokes</a>
+                            <a class="nav-link fs-3 mx-2 active" href="chucknorris.html">Chuck Jokes</a>
                         </li>
                         </ul>
                     </div>
@@ -77,10 +77,7 @@
                     class="card text-center mx-lg-5 col-lg-6 col-md-6 col-sm-10 p-0  shadow-lg"
                 >
                     <div class="card-header ">
-                        <h6>Famous Quote From: </h6>
-                        <h3> 
-                            <span class="author"></span>
-                    </h3>
+                        <h6>Chuck Norris: </h6>
                     </div>
                     <div class="card-body" style="min-height: 17vh">
                         <h5 class="quote"></h5>
@@ -91,7 +88,7 @@
                             onclick="getQuote()"
                             class="btn btn-warning btn-lg"
                         >
-                            Get Quote
+                            Get Joke
                         </button>
                     </div>
                 </div>
@@ -119,11 +116,10 @@
             <script>
                 const Type = document.querySelector(".type");
                 const quote = document.querySelector(".quote");
-                const Author = document.querySelector(".author");
                 const Card = document.querySelector(".card");
 
                 function getQuote() {
-                    fetch("https://api.quotable.io/random")
+                    fetch("https://api.chucknorris.io/jokes/random")
                         .then((response) => {
                             if (response.ok) {
                                 return response.json();
@@ -132,14 +128,8 @@
                             }
                         })
                         .then((data) => {
-                            const author = data.author;
-                            const content =data.content;
-                            const contLength = content.length;
-                            console.log("Author: "+author +"\n"+"Content: "+ content +"\n"+"Length: "+ contLength)
-                            
                             startCounting();
-                            Author.textContent = author;
-                            quote.textContent = content;
+                            quote.textContent = data.value;
                         });
                     }
 
